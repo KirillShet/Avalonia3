@@ -1,0 +1,206 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:AvaloniaApplication3.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="840" d:DesignHeight="600"
+        x:Class="AvaloniaApplication3.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+		x:CompileBindings="False"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="AvaloniaApplication3"
+		Width="840" Height="600">
+	<StackPanel>
+		<StackPanel Name="page1">
+			<Grid ColumnDefinitions="120, 660" RowDefinitions="30,45,75, 30, 30, 30, 40, 30, 45, 35, 30, 15, 50, 7, 69">
+				<TextBlock Grid.Row="1" Grid.Column="2" FontSize="20"> Регистрация: </TextBlock>
+				<TextBlock  HorizontalAlignment="Left" Grid.Row="2" Grid.Column="2" TextWrapping="Wrap">
+					Регистрация в Личном Кабинете позволит Вам полноценно его использовать. Вы сможете добавлять заявки и обращения, узнать статус поданных заявок, получить консультанцию и многое другое.&#10;В случае возникновения проблем с регистрацией, обратитесь к администратору сайта.
+				</TextBlock>
+				<TextBlock Margin="0, 25, 0, 0" Grid.Row="3" Grid.Column="1">Логин:</TextBlock>
+				<StackPanel Margin="0, 5, 0, 0" Grid.Row="4" Grid.Column="2">
+					<Border BorderBrush="Black" BorderThickness="1">
+						<Grid ColumnDefinitions="560, 95" RowDefinitions="40">
+							<TextBox Name="name1" VerticalAlignment="Center" Margin="1" BorderBrush="White" Watermark="Enter your name" CornerRadius="5"/>
+							<Button Click="ButtonPressed5" CornerRadius="15" Foreground="White" Background="SteelBlue" Margin="1" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Content="Проверить"/>
+						</Grid>
+					</Border>
+				</StackPanel>
+				<TextBlock Margin="0, 28, 0, 0" Grid.Row="5" Grid.Column="2"> Пароль </TextBlock>
+				<Border VerticalAlignment="Center" Grid.Row="6"  Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+					<TextBox PasswordChar="*" Name="password1" BorderBrush="White" Watermark="Enter your password"/>
+				</Border>
+				<TextBlock Margin="0, 20, 0, 0" Grid.Row="7" Grid.Column="2"> Пароль </TextBlock>
+				<Border VerticalAlignment="Center" Grid.Row="8"  Grid.Column="2" BorderBrush="Black" BorderThickness="1">
+					<TextBox PasswordChar="*" BorderBrush="White" Name="password2" Watermark="Repeat your password"/>
+				</Border>
+				<TextBlock Margin="0, 10, 0, 0" Grid.Row="9" Grid.Column="2">E-mail </TextBlock>
+				<TextBox Watermark="Enter your E-mail" Name="Mail" Grid.Row="10" Grid.Column="2" AcceptsReturn="True" PasswordChar="●" Foreground="Gray" TextWrapping="Wrap" CornerRadius="5"/>
+				<Border Grid.Row="12" Grid.Column="2" BorderBrush="Black" BorderThickness="1" Width="200" HorizontalAlignment="Left">
+					<Grid ColumnDefinitions="50, 150" RowDefinitions="19, 20">
+						<CheckBox Name="noname" Grid.ColumnSpan="2"  VerticalAlignment="Top" Margin="10" Grid.Row="0" Grid.Column="0"/>
+						<Image Grid.Row="0" Grid.Column="1" Height="40" Width="40" HorizontalAlignment="Right" Margin="0, 0, 10, 0"  Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication2\AvaloniaApplication2\Assets\vagno.png"/>
+						<TextBlock FontSize="6" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.Row="1" Grid.Column="1"> Конфиденциальность - Условия использования </TextBlock>
+					</Grid>
+				</Border>
+				<Rectangle Margin="0, 5, 0, 0" Grid.Row="13" Grid.Column="2" Fill="Gray"/>
+				<Button Click="ClickHandler" CornerRadius="20" Foreground="White" Background="SteelBlue" Grid.Row="14" Grid.Column="2" Content="Зарегистрироваться"/>
+				<Panel Grid.Column="0" Grid.RowSpan="25">
+					<SplitView IsPaneOpen="True"
+							   DisplayMode="Inline"
+							   OpenPaneLength="25"
+							   Name="Pane">
+						<SplitView.Pane>
+							<StackPanel Background="SteelBlue">
+								<Button Click="ButtonPressed1" HorizontalAlignment="Right" Height="32" Background="SteelBlue">
+									<StackPanel>
+										<Image Name="pictur1" IsVisible="False" Height="18" Width="18" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\png-transparent-computer-icons-arrow-symbol-arrow-psd-angle-text-rectangle-thumbnail.png">
+											<Image.RenderTransform>
+												<RotateTransform Angle="180"/>
+											</Image.RenderTransform>
+										</Image>
+										<Image Name="pictur2" Height="18" Width="18" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\png-transparent-computer-icons-arrow-symbol-arrow-psd-angle-text-rectangle-thumbnail.png"/>
+									</StackPanel>
+								</Button>
+								<StackPanel Name="Kolos" IsVisible="False">
+									<Button Content="Вход" HorizontalAlignment="Center" Click="ButtonPressed10"/>
+								</StackPanel>
+							</StackPanel>
+						</SplitView.Pane>
+					</SplitView>
+				</Panel>
+			</Grid>
+		</StackPanel>
+		<StackPanel Name="page2" IsVisible="False">
+			<Border Background="LemonChiffon" BorderBrush="Black" BorderThickness="4" CornerRadius="25" Padding="5" Margin="40" Grid.Row="2" Name="message28" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+				<StackPanel Margin="20" Grid.Row="3" Grid.Column="0" Background="LemonChiffon">
+					<TextBlock TextAlignment="Center">Данные:</TextBlock>
+					<TextBlock Margin="5" >Name:</TextBlock>
+					<TextBox Name="name2" Watermark="Enter your name" CornerRadius="100"/>
+					<TextBlock Margin="5" >Password:</TextBlock>
+					<TextBox Name="password3" PasswordChar="*" Watermark="Enter your password" CornerRadius="100"/>
+					<TextBlock Margin="5"> E-mail </TextBlock>
+					<TextBox Watermark="Enter your E-mail" Name="Mail2" Grid.Row="10" Grid.Column="2" AcceptsReturn="True" PasswordChar="●" Foreground="Gray" TextWrapping="Wrap" CornerRadius="5"/>
+					<StackPanel Margin="20">
+						<Button Click="ButtonPressed3">Отчистить поле с данными</Button>
+						<Button Margin="0, 10, 0, 0" Click="ButtonPressed99">Перейти к регистрации</Button>
+					</StackPanel>
+					<Button Click="ButtonPressed8" Name="RunButton8" HorizontalAlignment="Center" Margin="5" Foreground="green" Content="Подолжить" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2"/>
+					<TextBlock Name="ResultText8" Margin="10" HorizontalAlignment="Center"/>
+				</StackPanel>
+			</Border>
+		</StackPanel>
+		<StackPanel Name="page3" IsVisible="False">
+			<Grid ColumnDefinitions="150, 550, 150" Background="MediumTurquoise">
+				<StackPanel Background="Chocolate" Grid.Column="1">
+					<Grid RowDefinitions="28,15,500,100">
+						<Border	Background="YellowGreen" Grid.Row="0" CornerRadius="25" Margin="5">
+							<TextBlock HorizontalAlignment="Center"> Добро пожаловать! </TextBlock>
+						</Border>
+						<Border Background="DarkSeaGreen" Grid.Row="2">
+							<Grid ColumnDefinitions="160,20, 190, 50, 190" RowDefinitions="70,350,100">
+								<Border Background="Khaki" Grid.Column="2" Grid.Row="1" CornerRadius="20">
+									<Grid RowDefinitions="25,60,25,60,25,60">
+										<TextBlock HorizontalAlignment="Center" Margin="10" Grid.Row="0">Сводка правил: </TextBlock>
+										<Border BorderBrush="Black" BorderThickness="2" Grid.Row="1" Margin="8" Background="BurlyWood" Grid.RowSpan="3">
+											<ScrollViewer Name="Pravilo">
+												<StackPanel>
+													<ListBox Name="ProdList">
+														<ListBox.ItemTemplate>
+															<DataTemplate>
+																<StackPanel>
+																	<TextBlock Text="{Binding nameProd}">
+																	</TextBlock>
+																	<TextBlock Text="{Binding priceProd}">
+																	</TextBlock>
+																</StackPanel>
+															</DataTemplate>
+														</ListBox.ItemTemplate>
+													</ListBox>
+												</StackPanel>
+											</ScrollViewer>
+										</Border>
+										<Button Click="ButtonPressed4" CornerRadius="100" Name="RunButton2" HorizontalAlignment="Center" Height="32" Content="Вернуться назад" Grid.Row="4"/>
+										<ComboBox Name="Como" SelectedIndex="0" MaxDropDownHeight="100" Grid.Row="5" Margin="10" HorizontalAlignment="Center">
+											<ComboBoxItem>Text Item 1</ComboBoxItem>
+											<ComboBoxItem>Text Item 2</ComboBoxItem>
+											<ComboBoxItem>Text Item 3</ComboBoxItem>
+											<ComboBoxItem>Text Item 4</ComboBoxItem>
+											<ComboBoxItem>Text Item 5</ComboBoxItem>
+											<ComboBoxItem>Text Item 6</ComboBoxItem>
+											<ComboBoxItem>Text Item 7</ComboBoxItem>
+											<ComboBoxItem>Text Item 8</ComboBoxItem>
+											<ComboBoxItem>Text Item 9</ComboBoxItem>
+										</ComboBox>
+									</Grid>
+								</Border>
+								<StackPanel Grid.Column="0" Grid.Row="0">
+									<Grid RowDefinitions="60,60,25,60,20,60,25,60,25,60,25,60" ColumnDefinitions="85, 25">
+										<StackPanel Grid.Row="1" HorizontalAlignment="Left">
+											<Image Margin="20" Height="80" Grid.Column="0" Grid.Row="2" Width="500" Source="\Assets\1617279064_35-p-fon-shkola-35.jpg"/>
+										</StackPanel>
+										<StackPanel Grid.Row="3" HorizontalAlignment="Left">
+											<Image Margin="20" Height="74" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\Без_названия.png"/>
+										</StackPanel>
+										<StackPanel Grid.Row="5" HorizontalAlignment="Left">
+											<Image Margin="20" Height="80" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\1617279064_35-p-fon-shkola-35.jpg"/>
+										</StackPanel>
+										<StackPanel Grid.Row="7" HorizontalAlignment="Left">
+											<Image Margin="20" Height="74" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\Без_названия.png"/>
+										</StackPanel>
+									</Grid>
+								</StackPanel>
+								<StackPanel Grid.Column="4" Grid.Row="0">
+									<Grid RowDefinitions="60,60,25,60,20,60,25,60,25,60,25,60" ColumnDefinitions="85, 25">
+										<StackPanel Grid.Row="1" HorizontalAlignment="Left">
+											<Image Margin="20" Height="80" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\1617279064_35-p-fon-shkola-35.jpg"/>
+										</StackPanel>
+										<StackPanel Grid.Row="3" HorizontalAlignment="Left">
+											<Image Margin="20" Height="74" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\Без_названия.png"/>
+										</StackPanel>
+										<StackPanel Grid.Row="5" HorizontalAlignment="Left">
+											<Image Margin="20" Height="80" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\1617279064_35-p-fon-shkola-35.jpg"/>
+										</StackPanel>
+										<StackPanel Grid.Row="7" HorizontalAlignment="Left">
+											<Image Margin="20" Height="74" Grid.Column="0" Grid.Row="2" Width="500" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\Без_названия.png"/>
+										</StackPanel>
+									</Grid>
+								</StackPanel>
+							</Grid>
+						</Border>
+					</Grid>
+				</StackPanel>
+				<Panel  Grid.Column="1">
+					<SplitView IsPaneOpen="True"
+							   DisplayMode="Inline"
+							   OpenPaneLength="25"
+							   Name="Pane2">
+						<SplitView.Pane>
+							<StackPanel>
+								<Button Click="ButtonPressed33" HorizontalAlignment="Right" Height="32"  Background="Transparent">
+									<StackPanel>
+										<Image Name="pictur12" IsVisible="False" Height="18" Width="18" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\5880208.png"/>
+										<Image Name="pictur22" Height="18" Width="18" Source="C:\Users\prdb\Desktop\Ip1-21\AvaloniaApplication1\AvaloniaApplication1\Assets\png-transparent-computer-icons-arrow-symbol-arrow-psd-angle-text-rectangle-thumbnail.png"/>
+									</StackPanel>
+								</Button>
+								<StackPanel Name="Kolos1" IsVisible="False">
+									<TextBlock HorizontalAlignment="Center"> Аккаунт </TextBlock>
+									<Border Background="Khaki" HorizontalAlignment="Center" CornerRadius="20" Margin="5" Width="260">
+										<StackPanel>
+											<TextBlock Text="Имя:" Margin="15, 5, 0, 0"/>
+											<TextBlock TextWrapping="Wrap" Name="nname" HorizontalAlignment="Center" Text="{Binding ButtonPressed33}"/>
+											<TextBlock Text="Пароль:" Margin="15, 5, 0, 0"> </TextBlock>
+											<TextBlock TextWrapping="Wrap" Name="ppasword" Text="{Binding ButtonPressed33}" HorizontalAlignment="Center"> </TextBlock>
+											<TextBlock Text="E-mail:" Margin="15, 5, 0, 0"> </TextBlock>
+											<TextBlock TextWrapping="Wrap" Margin="0,0,0,5" Name="mmail" Text="{Binding ButtonPressed33}" HorizontalAlignment="Center"> </TextBlock>
+										</StackPanel>
+									</Border>
+								</StackPanel>
+							</StackPanel>
+						</SplitView.Pane>
+					</SplitView>
+				</Panel>
+			</Grid>
+		</StackPanel>
+	</StackPanel>
+</Window>
